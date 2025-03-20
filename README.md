@@ -47,3 +47,32 @@ aca se corta linealmente entre el 1 y el 2, no se ve el caso de 0, no influye.
 
 ### Redes neuronales
 
+![red neuronal](Red_neuronal.png)
+
+*esta imagen resume un poco lo que se hablo antes*
+
+Los valores de entrada siempre tienen que respresentarse en numeros
+
+cuando las clases estan separadas por un hiperplano, entre mas a un lado este, mas seguro es que la respuesta esta correcta, entre mas cerca, mas duda pone, por eso la funcion sigmoidal funciona, por que si es positivo es una clase y si es negativo es otra.
+
+![plano](hiper_plano.png)
+
+Loss: mide el error entre la prediccion $\hat{y}$ y el valor real $y$
+
+Mean square error: $L_i(\phi, x_i) = \frac{1}{2}(\hat{y_i}- y_i)^2$\
+esta para uso general
+
+binary cross entropy: $L_i(\phi, x_i) = -[y_ilog(\hat{y_i}) + (1-y_i)log(1-\hat{y_i})]$\ esta se ocupa literalmente para problemas de 0 o 1, independiente si se compara una clase con muchas, 1 vs all
+
+general cross entropy: $L_i(\phi, x_i) = -log(\hat{y_i}^*)$\
+esta se ocupa para clasificacion
+
+**ver los ejemplos del profe slide 14, 15 y 16**
+
+Cuando no hay un hiperplano que pueda separar las dos clases se necesitan mas neuronas como el caso del XOR
+
+![xor](XOR.png)
+![mlp](MLP_XOR.png)
+
+Como podemos ver hay dos neuronas que pueden resolver esto.
+
