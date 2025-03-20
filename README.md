@@ -45,3 +45,5 @@ aca se compara el 0 contra todos
 
 aca se corta linealmente entre el 1 y el 2, no se ve el caso de 0, no influye.
 
+### Redes neuronales
+
