@@ -54,11 +54,7 @@ Combina los perceptron organizando las neuronas por capas, cada neurona esta dot
 - ReLU:
     $$f(x) = \max[0,x]$$
 
-    $$f'(x) = 
-    \begin{cases} 
-    0 & \text{si } x < 0 \\
-    1 & \text{en otro caso}
-    \end{cases}$$
+    $$f'(x) = \begin{cases} 0 & \text{si } x < 0 \\1 &\text{en otro caso}\end{cases}$$
 
 ejemplo propuesto:
 
