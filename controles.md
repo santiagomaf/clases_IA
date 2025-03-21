@@ -85,9 +85,8 @@ para este caso sabemos que:
 - K = 2
 osea segun la formula es la cantidad de neuronas de la capa por la entrada mas 1 por el bias
 
-$
-3(4+1)+2(3+1) = 23
-$
+
+$3(4+1)+2(3+1) = 23$
 
 Pregunta propuesta:
 
@@ -113,9 +112,11 @@ $$
 ![Cross Entropy Loss](CEl.png)
 
 Para solucionar esto hay que aplicar la funcion de CE loss:
+
 $$
 -log[softmax(\hat{y^*})]
 $$
+
 la de softmax es:
 $$
 softmax = \frac{e^{z_i}}{\sum_{j=1}^{K}e^{z_j}}
