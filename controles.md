@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Mi Página"
+---
+
+
 ### control 3
 
 #### Perceptron y MLP
