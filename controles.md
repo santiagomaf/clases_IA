@@ -21,19 +21,16 @@ Un perceptrón se representa como un hiperplano clasificador, es decir, separa e
 Mide el error entre la predicción $\hat{y}$ y el valor real $y$.
 
 - MSE: diferencia entre la predicción y el valor real 
-$$
-l_i(\phi,x_i) = \frac{1}{2}(\hat{y_i}-y_i)^2
-$$
+
+$$l_i(\phi,x_i) = \frac{1}{2}(\hat{y_i}-y_i)^2$$
 
 - BCE: maximiza las salidas para que sean 1 o 0
-$$
-l_i(\phi,x_i) = -[y_i \log(\hat{y_i}) + (1-y_i) \log(1-\hat{y_i})]
-$$
+
+$$l_i(\phi,x_i) = -[y_i \log(\hat{y_i}) + (1-y_i) \log(1-\hat{y_i})]$$
 
 Para ambos casos se calcula de forma general:
-$$
-l(\phi,x) = \frac{1}{N}\sum_{i=1}^{N}l_i(\phi,x_i)
-$$
+
+$$l(\phi,x) = \frac{1}{N}\sum_{i=1}^{N}l_i(\phi,x_i)$$
 
 ### Entrenamiento
 
@@ -46,32 +43,22 @@ siendo $\alpha$ el learning rate
 
 Combina los perceptron organizando las neuronas por capas, cada neurona esta dotada de una funcion derivable no lineal como la:
 - sigmoidal: 
-    $$
-    f(x) = \frac{1}{1+e^{-x}}
-    $$
-    $$
-    f'(x) = f(x)(1-f(x))
-    $$
+    $$f(x) = \frac{1}{1+e^{-x}}$$
+
+    $$f'(x) = f(x)(1-f(x))$$
 
 - Tangente hiperbolica:
-    $$
-    f(x) = \frac{e^x-e^{-x}}{e^x+e^{-x}}
-    $$
-    $$
-    f'(x) = 1-f^2(x)
-    $$
-- ReLU:
-    $$
-    f(x) = \max[0,x]
-    $$
+    $$f(x) = \frac{e^x-e^{-x}}{e^x+e^{-x}}$$
 
-    $$
-    f'(x) = 
+    $$f'(x) = 1-f^2(x)$$
+- ReLU:
+    $$f(x) = \max[0,x]$$
+
+    $$f'(x) = 
     \begin{cases} 
     0 & \text{si } x < 0 \\
     1 & \text{en otro caso}
-    \end{cases}
-    $$
+    \end{cases}$$
 
 ejemplo propuesto:
 
@@ -93,34 +80,25 @@ Pregunta propuesta:
 ![calculo de output](calc_output.png)
 
 para resolver el siguente es primero calcular la sumatoria
-$$
-(x_1*\phi_1)+(x_2*\phi_2)+(x_3*\phi_3)+(x_0*\phi_0)
-$$
-$$
-(1*0)+(0*0,5)+(-1*1)+(1*0,5) = -0,5
-$$
+
+$$(x_1*\phi_1)+(x_2*\phi_2)+(x_3*\phi_3)+(x_0*\phi_0)$$
+
+$$(1*0)+(0*0,5)+(-1*1)+(1*0,5) = -0,5$$
 
 cuando tenemos el resultado de esto hay que aplicarlo a la funcion sigmoidal
 
-$$
-f(x) = \frac{1}{1+e^{-x}}
-$$
-$$
-f(x) = \frac{1}{1+e^{-(-0,5)}} = 0,38\:\text{aprox}
-$$
+$$f(x) = \frac{1}{1+e^{-x}}$$
+
+$$f(x) = \frac{1}{1+e^{-(-0,5)}} = 0,38\:\text{aprox}$$
 
 ![Cross Entropy Loss](CEl.png)
 
 Para solucionar esto hay que aplicar la funcion de CE loss:
 
-$$
--log[softmax(\hat{y^*})]
-$$
+$$-log[softmax(\hat{y^*})]$$
 
 la de softmax es:
-$$
-softmax = \frac{e^{z_i}}{\sum_{j=1}^{K}e^{z_j}}
-$$
+$$softmax = \frac{e^{z_i}}{\sum_{j=1}^{K}e^{z_j}}$$
 entonces para el ejemplo tenemos
 - $e^5 = 148,41$
 - $e^{0,5} = 1,65$
