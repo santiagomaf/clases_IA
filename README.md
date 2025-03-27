@@ -76,3 +76,61 @@ Cuando no hay un hiperplano que pueda separar las dos clases se necesitan mas ne
 
 Como podemos ver hay dos neuronas que pueden resolver esto.
 
+
+## Clase 27/03
+
+### MLP 
+Lo que hace una MLP es generar un vector de output que sean distintas clases, más de dos, que no sea binaria, pero la forma de clasificación es binaria, ya que es uno contra todos, por ejemplo si queremos clasificar perros, gatos y ratones, para los perros seria es perro o otra cosa, osea seria si es perro 1 y si no es perro es 0, solo para esta clase.
+
+
+#### Softmax
+
+$$ y = \frac{e^{y_i}}{\sum^{m}_{j = 1}e^{y_i}}$$
+
+La suma de todos los outputs del softmax tiene que ser 1.
+
+$$ 1 = \frac{e^{y_1}}{\sum^{m}_{j = 1}e^{y_i}} + \frac{e^{y_2}}{\sum^{m}_{j = 1}e^{y_i}}+.....+\frac{e^{y_m}}{\sum^{m}_{j = 1}e^{y_i}}$$
+
+---
+Cual es el objetivo de la función de activación:\
+Que el modelo se comporte no linealmente, darle más capacidad de aprendizaje al modelo.\
+La función de activación no va en la ultima capa, se las ponemos a las anteriores para pasarle mayor información a las siguentes capas, la de la salida es para cumplir ciertas condiciones, como por ejemplo de clasificación necesitamos que sea 0 o 1, osea la sigmoidal es util.
+
+### One-Hot code
+Es decir que tenemos 1 bit para cada clase, cuando hay una clase que sale correcta, se activa la posicion del bit de la clase.
+
+![one_hot_code](one_hot_code.png)
+
+Es una distribucion target
+### Cross Entropy
+Compara dos distribuciones\
+Por ejemplo si tenemos $$(0,0,1,0,0)$$ y $$(0.5,0.1,0.2,0.1,0.1)$$
+
+
+$$CE = -ln(\hat{y^*})$$
+donde $*$ es la clase, para el caso es 
+
+$$-ln(0.2)$$
+
+### Entropía
+
+$$ H(P)= \sum^{|P|}_{i = 1}p_i*ln(\frac{1}{p_i})$$
+
+$$H(P,Q) = -\sum^{|P|}_{i = 1}p_i*ln({q_i})  $$
+
+
+---
+Para el caso de tener distribucion binaria seria mejor ocupar un binary cross entropy con una sigmoidal a cada una de las salidas
+
+### Backpropagation
+Es que una capa como son fully connected influye directamente en todas las capas siguentes, por lo que si un parametro no esta bien ajustado el desempeño no va a ser bueno.\
+Esto se puede ver en la <span style="color:red;"> slide 16, 17, 18, 19 y 20 </span>
+
+
+#### Terinología Importante
+
+-Batch: se divide el dataset en batches más pequeño y va ajustando los parametros.
+
+-Iteration: parametros se van actualizando cada vez que va pasando por una capa, es la cantidad de batches
+
+-Epochs: cada ves que se completa la red neuronal es una epoca, osea si tenemos 1000 datos, con batches de 100, osea 10 batches o 10 iteraciones, cada 10 de estas iteraciones completamos una epoca. 
